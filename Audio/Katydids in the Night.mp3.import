@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Katydids in the Night.mp3-cd947c7031be0086fa0a88cbbed4ba0f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Katydids in the Night.mp3"
+dest_files=[ "res://.import/Katydids in the Night.mp3-cd947c7031be0086fa0a88cbbed4ba0f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

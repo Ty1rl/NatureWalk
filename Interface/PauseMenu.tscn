@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interface/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://Interface/interface.theme" type="Theme" id=2]
+[ext_resource path="res://Interface/Font/NationalPark-ExtraBold.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Pause" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 540.0
+margin_top = 289.0
+margin_right = 740.0
+margin_bottom = 431.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Label" type="Label" parent="CenterContainer/Pause"]
+margin_right = 200.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "Paused"
+align = 1
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/Pause"]
+margin_top = 50.0
+margin_right = 200.0
+margin_bottom = 78.0
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/Pause"]
+margin_top = 82.0
+margin_right = 200.0
+margin_bottom = 110.0
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/Pause"]
+margin_top = 114.0
+margin_right = 200.0
+margin_bottom = 142.0
+text = "Exit"
+
+[node name="Settings" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+margin_left = 540.0
+margin_top = 273.0
+margin_right = 740.0
+margin_bottom = 447.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Label" type="Label" parent="CenterContainer/Settings"]
+margin_right = 165.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 2 )
+text = "Settings"
+align = 1
+
+[node name="BackButton" type="Button" parent="CenterContainer/Settings"]
+margin_top = 32.0
+margin_right = 165.0
+margin_bottom = 60.0
+text = "Back"
+
+[node name="HSplitContainer" type="HBoxContainer" parent="CenterContainer/Settings"]
+margin_top = 64.0
+margin_right = 165.0
+margin_bottom = 92.0
+
+[node name="Label" type="Label" parent="CenterContainer/Settings/HSplitContainer"]
+margin_right = 61.0
+margin_bottom = 28.0
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="CenterContainer/Settings/HSplitContainer"]
+margin_left = 65.0
+margin_right = 165.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 100, 0 )
+min_value = -80.0
+max_value = 0.0
+step = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Settings"]
+margin_top = 96.0
+margin_right = 165.0
+margin_bottom = 124.0
+
+[node name="Label" type="Label" parent="CenterContainer/Settings/HBoxContainer"]
+margin_right = 55.0
+margin_bottom = 28.0
+text = "Mouse"
+
+[node name="MouseSlider" type="HSlider" parent="CenterContainer/Settings/HBoxContainer"]
+margin_left = 59.0
+margin_right = 159.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 100, 0 )
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/Settings"]
+margin_top = 128.0
+margin_right = 165.0
+margin_bottom = 156.0
+
+[node name="Label" type="Label" parent="CenterContainer/Settings/HBoxContainer2"]
+margin_right = 80.0
+margin_bottom = 28.0
+text = "Fullscreen"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="CenterContainer/Settings/HBoxContainer2"]
+margin_left = 84.0
+margin_right = 108.0
+margin_bottom = 28.0
+
+[connection signal="pressed" from="CenterContainer/Pause/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="CenterContainer/Pause/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="CenterContainer/Pause/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CenterContainer/Settings/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="value_changed" from="CenterContainer/Settings/HSplitContainer/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/Settings/HBoxContainer/MouseSlider" to="." method="_on_MouseSlider_value_changed"]
+[connection signal="toggled" from="CenterContainer/Settings/HBoxContainer2/FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]

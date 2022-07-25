@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cold Winter Snow and Wind.mp3-94fc0f2d571976f47522f2a45a55285d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Cold Winter Snow and Wind.mp3"
+dest_files=[ "res://.import/Cold Winter Snow and Wind.mp3-94fc0f2d571976f47522f2a45a55285d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
